@@ -30,9 +30,10 @@ float verify(const GMM &gmm_candidate, const fmatrix &dat) {
     lprobcand is an informative values to be printed as debug information.
     The decision is based on the returned value
    */
-  /// \DONE
+  // \DONE
 
   return gmm_candidate.logprob(dat);
+
 }
 
 
@@ -274,3 +275,4 @@ int read_options(int ArgC, const char *ArgV[], vector<Directory> &input_dirs, ve
   }
   return 0;      
 }
+

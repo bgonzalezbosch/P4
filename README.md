@@ -217,7 +217,7 @@ ejercicios indicados.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
   EXEC="wav2lpcc 8 13  $db_sen1/$filename.wav $w/$FEAT/$filename.$FEAT" #orden LPC = lp y orden cepstrum
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  - MFCC: línea 118 de run_spkid.sh (compute_lpcc())
+  - MFCC: línea 118 de run_spkid.sh (compute_mfcc())
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
   EXEC="wav2mfcc 8 16 24 $db_sen2/$filename.wav $w/$FEAT/$filename.$FEAT"  #orden MFCC = lp, orden del MFCC y num de filtros
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -306,6 +306,7 @@ Complete el código necesario para realizar verificación del locutor y optimice
   ---------------------------------
   ==> CostDetection: 39.1
   =================================
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   - LPCC:  
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh 
   run_spkid lpcc train test classerr trainworld verify verifyerr

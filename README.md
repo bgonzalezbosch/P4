@@ -8,10 +8,14 @@ los integrantes del grupo de prácticas, dar de alta al resto de integrantes com
 y crear la copias locales del repositorio.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 También debe descomprimir, en el directorio `PAV/P4`, el fichero [db_8mu.tgz](https://atenea.upc.edu/mod/resource/view.php?id=3508877?forcedownload=1)
 =======
 También debe descomprimir, en el directorio `PAV/P4`, el fichero [db_8mu.tgz](https://atenea.upc.edu/pluginfile.php/3145524/mod_assign/introattachment/0/spk_8mu.tgz?forcedownload=1)
 >>>>>>> Ficheros iniciales de P4
+=======
+También debe descomprimir, en el directorio `PAV/P4`, el fichero [db_8mu.tgz](https://atenea.upc.edu/mod/resource/view.php?id=3508877?forcedownload=1)
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 con la base de datos oral que se utilizará en la parte experimental de la práctica.
 
 Como entrega deberá realizar un *pull request* con el contenido de su copia del repositorio. Recuerde
@@ -38,6 +42,9 @@ ejercicios indicados.
   opciones empleadas y de sus valores.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
   * `sox` permite realizar la conversión de una señal de entrada sin cabecera a una del fromato adecuado. Además, también permite la conversión de señales guradadas en un programa externo. Al fiechero de entrada se le pueden aplicar las siguientes opciones:
     - `-t`: Tipo de fichero de audio.
     - `e`: Indica la codificación que se quiere aplicar (signed-integer, unsigned-integer, floating-point, mu-law, a-law, ima-adpcm, ms-adpcm, gsm-full-rate). 
@@ -90,6 +97,7 @@ ejercicios indicados.
   sox $inputfile -t raw -e signed -b 16 - | $X2X +sf | $FRAME -l 180 -p 100 | $WINDOW -l 180 -L 180 |
 	$MFCC -s $fm -l 180 -m $mfcc_order -n $melbank_order > $base.mfcc
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<<<<<<< HEAD
 =======
 - Explique el procedimiento seguido para obtener un fichero de formato *fmatrix* a partir de los ficheros de
   salida de SPTK (líneas 45 a 47 del script `wav2lp.sh`).
@@ -103,6 +111,8 @@ ejercicios indicados.
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales en escala Mel (MFCC) en su
   fichero <code>scripts/wav2mfcc.sh</code>:
 >>>>>>> Ficheros iniciales de P4
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 
 ### Extracción de características.
 
@@ -112,6 +122,9 @@ ejercicios indicados.
   + Indique **todas** las órdenes necesarias para obtener las gráficas a partir de las señales 
     parametrizadas.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
     
     - Orden para obtener el fichero de texto LP:
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
@@ -242,6 +255,7 @@ ejercicios indicados.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+<<<<<<< HEAD
 =======
   + ¿Cuál de ellas le parece que contiene más información?
 
@@ -257,6 +271,8 @@ ejercicios indicados.
 - Según la teoría, ¿qué parámetros considera adecuados para el cálculo de los coeficientes LPCC y MFCC?
 
 >>>>>>> Ficheros iniciales de P4
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 ### Entrenamiento y visualización de los GMM.
 
 Complete el código necesario para entrenar modelos GMM.
@@ -265,6 +281,9 @@ Complete el código necesario para entrenar modelos GMM.
   para sus dos primeros coeficientes de MFCC.
   
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
   Para obtener las gráficas hemos ejecutado las siguientes ordenes en el terminal:
   
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
@@ -294,17 +313,23 @@ Complete el código necesario para entrenar modelos GMM.
   Se debe tener en cuanta a la hora de compara que los límites de las gráficas superiores e inferiores no coinciden con tal de poder ver toda la informació con más detalle.
 
   Para determinar que locutor y población coinciden, las regiones y las poblaciones deben coincidir. Dicho de otra manera, donde hay más concentración de población debe conicidir con los circulos de porcentage más pequeños. Analizando las gráficas vemos como en el caso en el que locutor y población coincidenm se cumple la condición que hemos dicho. En cambio, para GMM:SES012 LOC:SES017 y  GMM:SES017 LOC:SES012 las regiones de la masa de probabilidad de los GMM está desplazada respecto las zonas de más densidad de población. Sobretodo en el cas0 GMM:SES017 LOC:SES012.
+<<<<<<< HEAD
 =======
 - Inserte una gráfica que permita comparar los modelos y poblaciones de dos locutores distintos (la gŕafica
   de la página 20 del enunciado puede servirle de referencia del resultado deseado). Analice la capacidad
   del modelado GMM para diferenciar las señales de uno y otro.
 >>>>>>> Ficheros iniciales de P4
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 
 ### Reconocimiento del locutor.
 
 Complete el código necesario para realizar reconociminto del locutor y optimice sus parámetros.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 Una vez completado el código y optimizado, hemos ejecutado las siguentes ordenes en el terminal:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
@@ -325,10 +350,13 @@ FEAT=mfcc run_spkid train classerr
   | Número de errores      |77    |27    |9     |
   | Número total           |785   |785   |785   |
   | Tasa de Error (%)      |9.81  |3.44  |1.15  |
+<<<<<<< HEAD
 =======
 - Inserte una tabla con la tasa de error obtenida en el reconocimiento de los locutores de la base de datos
   SPEECON usando su mejor sistema de reconocimiento para los parámetros LP, LPCC y MFCC.
 >>>>>>> Ficheros iniciales de P4
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 
 ### Verificación del locutor.
 
@@ -339,6 +367,9 @@ Complete el código necesario para realizar verificación del locutor y optimice
   pérdidas, y el score obtenido usando la parametrización que mejor resultado le hubiera dado en la tarea
   de reconocimiento.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
   
   - LP:  
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh 
@@ -387,21 +418,28 @@ Complete el código necesario para realizar verificación del locutor y optimice
   | CostDectection         |39.1  |21.1  |10.3  |
 
 
+<<<<<<< HEAD
 =======
  
 >>>>>>> Ficheros iniciales de P4
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 ### Test final
 
 - Adjunte, en el repositorio de la práctica, los ficheros `class_test.log` y `verif_test.log` 
   correspondientes a la evaluación *ciega* final.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 Los ficheros correspondientes a la evaluación *ciega* final los hemos creado a partir de ejecutar los siguientes comandos en el terminal:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh 
 FEAT=mfcc run_spkid finalclass
 FEAT=mfcc run_spkid finalverif  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<<<<<<< HEAD
 =======
 ### Trabajo de ampliación.
 
@@ -409,3 +447,5 @@ FEAT=mfcc run_spkid finalverif
   realizado como ampliación, así como los ficheros `class_ampl.log` y/o `verif_ampl.log`, obtenidos como 
   resultado del mismo.
 >>>>>>> Ficheros iniciales de P4
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c

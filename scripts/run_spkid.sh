@@ -13,19 +13,29 @@
 # - name_exp: name of the experiment
 # - db:       directory of the speecon database 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # \DONE
 
 =======
 >>>>>>> Ficheros iniciales de P4
+=======
+# \DONE
+
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 lists=lists
 w=work
 name_exp=one
 db=spk_8mu/speecon
 <<<<<<< HEAD
+<<<<<<< HEAD
 db_test=spk_8mu/sr_test
 world=users_and_others      #OPTIONS= others, users_and_others
 =======
 >>>>>>> Ficheros iniciales de P4
+=======
+db_test=spk_8mu/sr_test
+world=users_and_others      #OPTIONS= others, users_and_others
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 
 # ------------------------
 # Usage
@@ -95,6 +105,9 @@ fi
 # Create your own features with the name compute_$FEAT(), where $FEAT is the name of the feature.
 # - Select (or change) different features, options, etc. Make you best choice and try several options.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 # \DONE
 
 compute_lp() {
@@ -113,6 +126,7 @@ compute_lpcc() {
     for filename in $(sort $*); do
         mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
         EXEC="wav2lpcc 8 13  $db_sen1/$filename.wav $w/$FEAT/$filename.$FEAT"  #orden LPC = lp y orden cepstrum
+<<<<<<< HEAD
 =======
 
 compute_lp() {
@@ -120,11 +134,16 @@ compute_lp() {
         mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
         EXEC="wav2lp 8 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
 >>>>>>> Ficheros iniciales de P4
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
         echo $EXEC && $EXEC || exit 1
     done
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 compute_mfcc() {
     db_sen2=$1
     shift
@@ -134,8 +153,11 @@ compute_mfcc() {
         echo $EXEC && $EXEC || exit 1
     done
 }
+<<<<<<< HEAD
 =======
 >>>>>>> Ficheros iniciales de P4
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 
 #  Set the name of the feature (not needed for feature extraction itself)
 if [[ ! -n "$FEAT" && $# > 0 && "$(type -t compute_$1)" = function ]]; then
@@ -163,17 +185,23 @@ for cmd in $*; do
 	   # \TODO
 	   # Select (or change) good parameters for gmm_train
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
        # \DONE
        for dir in $db/BLOCK*/SES* ; do
            name=${dir/*\/}
            echo $name ----
            gmm_train  -v 1 -T 0.013 -i 1 -N 60 -m 55 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
+<<<<<<< HEAD
 =======
        for dir in $db/BLOCK*/SES* ; do
            name=${dir/*\/}
            echo $name ----
            gmm_train  -v 1 -T 0.001 -N5 -m 1 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
 >>>>>>> Ficheros iniciales de P4
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
            echo
        done
    elif [[ $cmd == test ]]; then
@@ -191,9 +219,13 @@ for cmd in $*; do
                  else {$err++}
                  END {printf "nerr=%d\tntot=%d\terror_rate=%.2f%%\n", ($err, $ok+$err, 100*$err/($ok+$err))}' $w/class_${FEAT}_${name_exp}.log | tee -a $w/class_${FEAT}_${name_exp}.log
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> Ficheros iniciales de P4
+=======
+
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
    elif [[ $cmd == trainworld ]]; then
        ## @file
 	   # \TODO
@@ -201,14 +233,20 @@ for cmd in $*; do
 	   #
 	   # - The name of the world model will be used by gmm_verify in the 'verify' command below.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
        # \DONE
 
        #echo "Implement the trainworld option ..."
        (gmm_train  -v 1 -T 0.02 -i 1 -N 35 -m 60 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$world.gmm $lists/verif/$world.train) || exit 1
 
+<<<<<<< HEAD
 =======
        echo "Implement the trainworld option ..."
 >>>>>>> Ficheros iniciales de P4
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
    elif [[ $cmd == verify ]]; then
        ## @file
 	   # \TODO 
@@ -219,13 +257,19 @@ for cmd in $*; do
 	   #   * <code> gmm_verify ... > $w/verif_${FEAT}_${name_exp}.log </code>
 	   #   * <code> gmm_verify ... | tee $w/verif_${FEAT}_${name_exp}.log </code>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
        # \DONE
 
        #echo "Implement the verify option ..."
        (gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w $world $lists/gmm.list  $lists/verif/all.test $lists/verif/all.test.candidates | tee $w/verif_${FEAT}_${name_exp}.log) || exit 1
+<<<<<<< HEAD
 =======
        echo "Implement the verify option ..."
 >>>>>>> Ficheros iniciales de P4
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 
    elif [[ $cmd == verifyerr ]]; then
        if [[ ! -s $w/verif_${FEAT}_${name_exp}.log ]] ; then
@@ -243,6 +287,9 @@ for cmd in $*; do
 	   # The list of users is the same as for the classification task. The list of files to be
 	   # recognized is lists/final/class.test
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
        # \DONE
        
        #echo "To be implemented ..."
@@ -253,10 +300,13 @@ for cmd in $*; do
         done 
         gmm_classify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm $lists/gmm.list  $lists/final/class.test | tee class_test.log
  
+<<<<<<< HEAD
 =======
        echo "To be implemented ..."
    
 >>>>>>> Ficheros iniciales de P4
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
    elif [[ $cmd == finalverif ]]; then
        ## @file
 	   # \TODO
@@ -265,6 +315,9 @@ for cmd in $*; do
 	   # is lists/final/verif.test, and the list of users claimed by the test files is
 	   # lists/final/verif.test.candidates
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
        # \DONE
 
        #echo "To be implemented ..."
@@ -275,26 +328,35 @@ for cmd in $*; do
                     if ($F[2] >   0.198893935416598) {print "1\n"}  
                     else {print "0\n"}' tee $w/final_verif_${FEAT}_${name_exp}.log | tee verif_test.log
        
+<<<<<<< HEAD
 =======
        echo "To be implemented ..."
 >>>>>>> Ficheros iniciales de P4
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
    
    # If the command is not recognize, check if it is the name
    # of a feature and a compute_$FEAT function exists.
    elif [[ "$(type -t compute_$cmd)" = function ]]; then
 	   FEAT=$cmd
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
        compute_$FEAT $db $lists/class/all.train $lists/class/all.test          
    else
        echo "undefined command $cmd" && exit 1
    fi     
 
+<<<<<<< HEAD
 =======
        compute_$FEAT       
    else
        echo "undefined command $cmd" && exit 1
    fi
 >>>>>>> Ficheros iniciales de P4
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 done
 
 date

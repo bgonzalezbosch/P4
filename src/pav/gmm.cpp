@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* Copyright (C) Universitat Politï¿½cnica de Catalunya, Barcelona, Spain.
 =======
 /* Copyright (C) Universitat Politècnica de Catalunya, Barcelona, Spain.
 >>>>>>> Ficheros iniciales de P4
+=======
+/* Copyright (C) Universitat Politï¿½cnica de Catalunya, Barcelona, Spain.
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
  *
  * Permission to copy, use, modify, sell and distribute this software
  * is granted provided this copyright notice appears in all copies.
@@ -106,9 +110,13 @@ namespace upc {
 
   /// \TODO Compute the logprob for the whole input data.
 <<<<<<< HEAD
+<<<<<<< HEAD
   /// \DONE
 =======
 >>>>>>> Ficheros iniciales de P4
+=======
+  /// \DONE
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
   float GMM::logprob(const fmatrix &data) const {    
 
     if (nmix == 0 or vector_size == 0 or vector_size != data.ncol())
@@ -120,10 +128,15 @@ namespace upc {
     for (n=0; n<data.nrow(); ++n) {
       /// \TODO Compute the logprob of a single frame of the input data; you can use gmm_logprob() above.
 <<<<<<< HEAD
+<<<<<<< HEAD
       /// \DONE
       lprob += gmm_logprob(data[n]);
 =======
 >>>>>>> Ficheros iniciales de P4
+=======
+      /// \DONE
+      lprob += gmm_logprob(data[n]);
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
     }    
     return lprob/n;
   }
@@ -187,11 +200,15 @@ namespace upc {
       return -1.0;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (weights.nrow() != data.nrow() or weights.ncol() != nmix)
 =======
     if (weights.nrow() != data.nrow() or
 	weights.ncol() != nmix)
 >>>>>>> Ficheros iniciales de P4
+=======
+    if (weights.nrow() != data.nrow() or weights.ncol() != nmix)
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
       weights.resize(data.nrow(), nmix);
 
     //use log(prob) for intermediate computation, to avoid underflow
@@ -221,6 +238,9 @@ namespace upc {
     for (iteration=0; iteration<max_it; ++iteration) {
       /// \TODO
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
 	    // Complete the loop in order to perform EM, and implement the stopping criterion.
 	    //
 	    // EM loop: em_expectation + em_maximization.
@@ -241,6 +261,7 @@ namespace upc {
 		  if (fabs(inc_prob) < inc_threshold){
         return 0;
       }
+<<<<<<< HEAD
 =======
 	  // Complete the loop in order to perform EM, and implement the stopping criterion.
 	  //
@@ -251,6 +272,8 @@ namespace upc {
       if (verbose & 01)
 	cout << "GMM nmix=" << nmix << "\tite=" << iteration << "\tlog(prob)=" << new_prob << "\tinc=" << inc_prob << endl;
 >>>>>>> Ficheros iniciales de P4
+=======
+>>>>>>> f8f86880296c2b221da50c6c2b028c2d4c10a90c
     }
     return 0;
   }

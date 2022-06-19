@@ -1,0 +1,7 @@
+[options]
+prefix = /home/genis/PAV
+libdir = lib
+buildtype = release
+
+[properties]
+

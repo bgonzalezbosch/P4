@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* Copyright (C) Universitat Politï¿½cnica de Catalunya, Barcelona, Spain.
+=======
+/* Copyright (C) Universitat Politècnica de Catalunya, Barcelona, Spain.
+>>>>>>> Ficheros iniciales de P4
  *
  * Permission to copy, use, modify, sell and distribute this software
  * is granted provided this copyright notice appears in all copies.
@@ -101,6 +105,10 @@ namespace upc {
   }
 
   /// \TODO Compute the logprob for the whole input data.
+<<<<<<< HEAD
+  /// \DONE
+=======
+>>>>>>> Ficheros iniciales de P4
   float GMM::logprob(const fmatrix &data) const {    
 
     if (nmix == 0 or vector_size == 0 or vector_size != data.ncol())
@@ -111,7 +119,11 @@ namespace upc {
 
     for (n=0; n<data.nrow(); ++n) {
       /// \TODO Compute the logprob of a single frame of the input data; you can use gmm_logprob() above.
-    lprob += gmm_logprob(data[n]);
+<<<<<<< HEAD
+      /// \DONE
+      lprob += gmm_logprob(data[n]);
+=======
+>>>>>>> Ficheros iniciales de P4
     }    
     return lprob/n;
   }
@@ -174,8 +186,12 @@ namespace upc {
     if (data.ncol() != vector_size)
       return -1.0;
 
+<<<<<<< HEAD
+    if (weights.nrow() != data.nrow() or weights.ncol() != nmix)
+=======
     if (weights.nrow() != data.nrow() or
 	weights.ncol() != nmix)
+>>>>>>> Ficheros iniciales de P4
       weights.resize(data.nrow(), nmix);
 
     //use log(prob) for intermediate computation, to avoid underflow
@@ -204,21 +220,37 @@ namespace upc {
     fmatrix weights(data.nrow(), nmix);
     for (iteration=0; iteration<max_it; ++iteration) {
       /// \TODO
+<<<<<<< HEAD
+	    // Complete the loop in order to perform EM, and implement the stopping criterion.
+	    //
+	    // EM loop: em_expectation + em_maximization.
+	    //
+      // Update old_prob, new_prob and inc_prob in order to stop the loop if logprob does not
+      // increase more than inc_threshold.
+      // \DONE
+
+      new_prob = em_expectation(data, weights);
+  		em_maximization(data, weights);
+
+		  inc_prob = new_prob - old_prob;
+		  old_prob = new_prob;
+
+      if (verbose & 01){
+	      cout << "GMM nmix=" << nmix << "\tite=" << iteration << "\tlog(prob)=" << new_prob << "\tinc=" << inc_prob << endl;
+		  }
+		  if (fabs(inc_prob) < inc_threshold){
+        return 0;
+      }
+=======
 	  // Complete the loop in order to perform EM, and implement the stopping criterion.
 	  //
 	  // EM loop: em_expectation + em_maximization.
 	  //
       // Update old_prob, new_prob and inc_prob in order to stop the loop if logprob does not
       // increase more than inc_threshold.
-      new_prob = this->em_expectation(data,weights);
-      this->em_maximization(data,weights);
-      inc_prob = new_prob - old_prob;
-      old_prob = new_prob;
-      if (inc_prob < inc_threshold){
-        break;
-      }
       if (verbose & 01)
 	cout << "GMM nmix=" << nmix << "\tite=" << iteration << "\tlog(prob)=" << new_prob << "\tinc=" << inc_prob << endl;
+>>>>>>> Ficheros iniciales de P4
     }
     return 0;
   }

@@ -1,10 +1,5 @@
 #!/bin/bash
 
-## \file
-## \TODO This file implements a very trivial feature extraction; use it as a template for other front ends.
-## 
-## Please, read SPTK documentation and some papers in order to implement more advanced front ends.
-
 # Base name for temporary files
 base=/tmp/$(basename $0).$$ 
 
@@ -43,7 +38,7 @@ fi
 
 # Main command for feature extration
 sox $inputfile -t raw -e signed -b 16 - | $X2X +sf | $FRAME -l 240 -p 80 | $WINDOW -l 240 -L 240 |
-   $LPC -l 240 -m $lpc_order | $LPCC -m $lpc_order -M $lpcc_order> $base.lpcc
+	$LPC -l 240 -m $lpc_order | $LPCC -m $lpc_order -M $lpcc_order > $base.lpcc
 
 # Our array files need a header with the number of cols and rows:
 ncol=$((lpcc_order+1)) # lpcc p =>  (gain a1 a2 ... ap) 

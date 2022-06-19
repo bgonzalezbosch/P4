@@ -306,8 +306,6 @@ Complete el código necesario para realizar verificación del locutor y optimice
   ---------------------------------
   ==> CostDetection: 39.1
   =================================
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
   - LPCC:  
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh 
   run_spkid lpcc train test classerr trainworld verify verifyerr

@@ -7,11 +7,7 @@ instrucciones de la [Práctica 2](https://github.com/albino-pav/P2) para crear u
 los integrantes del grupo de prácticas, dar de alta al resto de integrantes como colaboradores del proyecto
 y crear la copias locales del repositorio.
 
-<<<<<<< HEAD
 También debe descomprimir, en el directorio `PAV/P4`, el fichero [db_8mu.tgz](https://atenea.upc.edu/mod/resource/view.php?id=3508877?forcedownload=1)
-=======
-También debe descomprimir, en el directorio `PAV/P4`, el fichero [db_8mu.tgz](https://atenea.upc.edu/pluginfile.php/3145524/mod_assign/introattachment/0/spk_8mu.tgz?forcedownload=1)
->>>>>>> Ficheros iniciales de P4
 con la base de datos oral que se utilizará en la parte experimental de la práctica.
 
 Como entrega deberá realizar un *pull request* con el contenido de su copia del repositorio. Recuerde
@@ -37,7 +33,6 @@ ejercicios indicados.
   principal (`sox`, `$X2X`, `$FRAME`, `$WINDOW` y `$LPC`). Explique el significado de cada una de las 
   opciones empleadas y de sus valores.
 
-<<<<<<< HEAD
   * `sox` permite realizar la conversión de una señal de entrada sin cabecera a una del fromato adecuado. Además, también permite la conversión de señales guradadas en un programa externo. Al fiechero de entrada se le pueden aplicar las siguientes opciones:
     - `-t`: Tipo de fichero de audio.
     - `e`: Indica la codificación que se quiere aplicar (signed-integer, unsigned-integer, floating-point, mu-law, a-law, ima-adpcm, ms-adpcm, gsm-full-rate). 
@@ -90,19 +85,6 @@ ejercicios indicados.
   sox $inputfile -t raw -e signed -b 16 - | $X2X +sf | $FRAME -l 180 -p 100 | $WINDOW -l 180 -L 180 |
 	$MFCC -s $fm -l 180 -m $mfcc_order -n $melbank_order > $base.mfcc
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-=======
-- Explique el procedimiento seguido para obtener un fichero de formato *fmatrix* a partir de los ficheros de
-  salida de SPTK (líneas 45 a 47 del script `wav2lp.sh`).
-
-  * ¿Por qué es conveniente usar este formato (u otro parecido)? Tenga en cuenta cuál es el formato de
-    entrada y cuál es el de resultado.
-
-- Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales de predicción lineal
-  (LPCC) en su fichero <code>scripts/wav2lpcc.sh</code>:
-
-- Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales en escala Mel (MFCC) en su
-  fichero <code>scripts/wav2mfcc.sh</code>:
->>>>>>> Ficheros iniciales de P4
 
 ### Extracción de características.
 
@@ -111,7 +93,6 @@ ejercicios indicados.
   
   + Indique **todas** las órdenes necesarias para obtener las gráficas a partir de las señales 
     parametrizadas.
-<<<<<<< HEAD
     
     - Orden para obtener el fichero de texto LP:
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
@@ -236,27 +217,12 @@ ejercicios indicados.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
   EXEC="wav2lpcc 8 13  $db_sen1/$filename.wav $w/$FEAT/$filename.$FEAT" #orden LPC = lp y orden cepstrum
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  - MFCC: línea 118 de run_spkid.sh (compute_mfcc())
+  - MFCC: línea 118 de run_spkid.sh (compute_lpcc())
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
   EXEC="wav2mfcc 8 16 24 $db_sen2/$filename.wav $w/$FEAT/$filename.$FEAT"  #orden MFCC = lp, orden del MFCC y num de filtros
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-=======
-  + ¿Cuál de ellas le parece que contiene más información?
-
-- Usando el programa <code>pearson</code>, obtenga los coeficientes de correlación normalizada entre los
-  parámetros 2 y 3 para un locutor, y rellene la tabla siguiente con los valores obtenidos.
-
-  |                        | LP   | LPCC | MFCC |
-  |------------------------|:----:|:----:|:----:|
-  | &rho;<sub>x</sub>[2,3] |      |      |      |
-  
-  + Compare los resultados de <code>pearson</code> con los obtenidos gráficamente.
-  
-- Según la teoría, ¿qué parámetros considera adecuados para el cálculo de los coeficientes LPCC y MFCC?
-
->>>>>>> Ficheros iniciales de P4
 ### Entrenamiento y visualización de los GMM.
 
 Complete el código necesario para entrenar modelos GMM.
@@ -264,7 +230,6 @@ Complete el código necesario para entrenar modelos GMM.
 - Inserte una gráfica que muestre la función de densidad de probabilidad modelada por el GMM de un locutor
   para sus dos primeros coeficientes de MFCC.
   
-<<<<<<< HEAD
   Para obtener las gráficas hemos ejecutado las siguientes ordenes en el terminal:
   
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
@@ -294,17 +259,11 @@ Complete el código necesario para entrenar modelos GMM.
   Se debe tener en cuanta a la hora de compara que los límites de las gráficas superiores e inferiores no coinciden con tal de poder ver toda la informació con más detalle.
 
   Para determinar que locutor y población coinciden, las regiones y las poblaciones deben coincidir. Dicho de otra manera, donde hay más concentración de población debe conicidir con los circulos de porcentage más pequeños. Analizando las gráficas vemos como en el caso en el que locutor y población coincidenm se cumple la condición que hemos dicho. En cambio, para GMM:SES012 LOC:SES017 y  GMM:SES017 LOC:SES012 las regiones de la masa de probabilidad de los GMM está desplazada respecto las zonas de más densidad de población. Sobretodo en el cas0 GMM:SES017 LOC:SES012.
-=======
-- Inserte una gráfica que permita comparar los modelos y poblaciones de dos locutores distintos (la gŕafica
-  de la página 20 del enunciado puede servirle de referencia del resultado deseado). Analice la capacidad
-  del modelado GMM para diferenciar las señales de uno y otro.
->>>>>>> Ficheros iniciales de P4
 
 ### Reconocimiento del locutor.
 
 Complete el código necesario para realizar reconociminto del locutor y optimice sus parámetros.
 
-<<<<<<< HEAD
 Una vez completado el código y optimizado, hemos ejecutado las siguentes ordenes en el terminal:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
@@ -325,10 +284,6 @@ FEAT=mfcc run_spkid train classerr
   | Número de errores      |77    |27    |9     |
   | Número total           |785   |785   |785   |
   | Tasa de Error (%)      |9.81  |3.44  |1.15  |
-=======
-- Inserte una tabla con la tasa de error obtenida en el reconocimiento de los locutores de la base de datos
-  SPEECON usando su mejor sistema de reconocimiento para los parámetros LP, LPCC y MFCC.
->>>>>>> Ficheros iniciales de P4
 
 ### Verificación del locutor.
 
@@ -338,7 +293,6 @@ Complete el código necesario para realizar verificación del locutor y optimice
   de verificación de SPEECON. La tabla debe incluir el umbral óptimo, el número de falsas alarmas y de
   pérdidas, y el score obtenido usando la parametrización que mejor resultado le hubiera dado en la tarea
   de reconocimiento.
-<<<<<<< HEAD
   
   - LP:  
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh 
@@ -352,7 +306,6 @@ Complete el código necesario para realizar verificación del locutor y optimice
   ---------------------------------
   ==> CostDetection: 39.1
   =================================
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   - LPCC:  
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh 
   run_spkid lpcc train test classerr trainworld verify verifyerr
@@ -366,7 +319,7 @@ Complete el código necesario para realizar verificación del locutor y optimice
   ==> CostDetection: 21.1
   =================================
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- MFCC:  
+  - MFCC:  
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh 
   run_spkid mfcc train test classerr trainworld verify verifyerr
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -387,25 +340,14 @@ Complete el código necesario para realizar verificación del locutor y optimice
   | CostDectection         |39.1  |21.1  |10.3  |
 
 
-=======
- 
->>>>>>> Ficheros iniciales de P4
 ### Test final
 
 - Adjunte, en el repositorio de la práctica, los ficheros `class_test.log` y `verif_test.log` 
   correspondientes a la evaluación *ciega* final.
 
-<<<<<<< HEAD
 Los ficheros correspondientes a la evaluación *ciega* final los hemos creado a partir de ejecutar los siguientes comandos en el terminal:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh 
 FEAT=mfcc run_spkid finalclass
 FEAT=mfcc run_spkid finalverif  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-=======
-### Trabajo de ampliación.
-
-- Recuerde enviar a Atenea un fichero en formato zip o tgz con la memoria (en formato PDF) con el trabajo 
-  realizado como ampliación, así como los ficheros `class_ampl.log` y/o `verif_ampl.log`, obtenidos como 
-  resultado del mismo.
->>>>>>> Ficheros iniciales de P4
